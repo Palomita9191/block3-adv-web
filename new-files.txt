@@ -1,0 +1,11 @@
+Hi!.
+
+Topics:
+Questions
+XAMPP
+OS security issues
+.gtitigore
+mac resource forks
+discard changes
+pull & push
+branches
