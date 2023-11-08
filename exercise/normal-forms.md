@@ -53,7 +53,7 @@ Hotel Table:
 
 
 
-Figure 3 : Employees , jobs and states
+Figure : Employees , jobs and states
 Employees Table:
 | EMPLOYEE_ID | NAME | STATE_CODE | HOME_STATE |
 |-------------|------|------------|------------|
