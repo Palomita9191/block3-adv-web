@@ -5,8 +5,13 @@ class Model {
     private $dbConnection;
 
     public function __construct() {
-        // Establish a database connection (update with your credentials)
-        $this->dbConnection = new mysqli("localhost", "username", "password", "food_vendor_db");
+        // Update the database credentials as per your setup
+        $this->dbConnection = new mysqli("localhost", "your_username", "your_password", "food_vendor_db");
+
+        // Check connection
+        if ($this->dbConnection->connect_error) {
+            die("Connection failed: " . $this->dbConnection->connect_error);
+        }
     }
 
     public function getDishes() {
@@ -22,3 +27,4 @@ class Model {
     }
 }
 ?>
+
