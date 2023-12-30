@@ -97,11 +97,11 @@ Units Table:
 | U4     | AVQ   | 621  |
 
 Tutors Table:
-| TutorID | TutEmail    | Book      |
-|---------|-------------|-----------|
-| Tut1    | tut1@fhbb.ch| Deumlich  |
-| Tut3    | tut3@fhbb.ch| Dümmelrs  |
-| Tut5    | tut5@fhbb.ch| SwissTopo |
+| TutorID | TutEmail    |
+|---------|-------------|
+| Tut1    | tut1@fhbb.ch|
+| Tut3    | tut3@fhbb.ch|
+| Tut5    | tut5@fhbb.ch|
 
 Students Grades Table:
 | StudentID | UnitID | Topic  | Date     | TutorID | Grade |
