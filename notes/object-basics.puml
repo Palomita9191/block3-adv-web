@@ -1,0 +1,52 @@
+@startuml
+scale 3
+class ClassName {
+    +public
+    -private
+    #protected
+    +publicMethod()
+    -privateMethod()
+    #protectedMethod()
+}
+class Parent {
+    age
+    talk()
+}
+
+class child extends Parent {
+    cry()
+}
+
+class BankAccount {
+    -balance
+    +getBalance()
+    +deposit($amount)
+}
+
+class SavingAccount {
+    -interstRate
+    +setInterestRate($interestRate)
+}
+
+class BankAccount {
+    -balance
+    +__construct($balance)
+    +getBalance()
+    +deposit($amount)
+}
+
+class ChequingAccount extends BankAccount {
+    -transactions
+    -withdrawlLimit
+    -monthlyFee
+    +withdrawl($amount)
+}
+
+class SavingAccount extends BankAccount {
+    -interestRate
+    +__construct($balance, $interstRate)
+    +setIntererstRate($interestRate)
+    +addInterest()
+}
+
+@enduml
