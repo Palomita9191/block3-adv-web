@@ -20,7 +20,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 switch ($action) {
     case 'showSuppliers':
         $controller->showSuppliers();
-        brea    
+        break;    
     case 'showDishes':
         $controller->showDishes();
         break;
