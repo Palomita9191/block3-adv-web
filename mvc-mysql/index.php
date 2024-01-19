@@ -7,9 +7,9 @@ include_once './models/model.php';
 include_once './models/DishModel.php';
 
 $host = "localhost";
-$username = "root";
-$password = "";
-$database = "wei_peter";
+$username = "lixia_mvc";
+$password = "243849Xl@";
+$database = "li_peter";
 
 $connection2 = new ConnectionObject($host, $username, $password, $database);
 
@@ -20,7 +20,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 switch ($action) {
     case 'showSuppliers':
         $controller->showSuppliers();
-        break;
+        brea    
     case 'showDishes':
         $controller->showDishes();
         break;
