@@ -9,12 +9,14 @@ class Controller
 
   private $ingredientTypeModel;
   private $supplierModel;
+
+  private $ingredientModel;
 //   private $dishIngredientModel;
 
   public function __construct($connection)
   {
-    // $this->dishModel = new dishModel($connection);
-    // $this->ingredientModel = new ingredientModel($connection);
+    $this->ingredientTypeModel = new ingredientTypeModel($connection);
+    $this->ingredientModel = new ingredientModel($connection);
     $this->supplierModel = new supplierModel($connection);
   }
 
@@ -105,7 +107,7 @@ public function showIngredientType()
       echo "<p>Missing information</p>";
       $this->showIngredientTypeForm();
       return;
-    } else if ($this->ingredientTypeModel->insertIngredientType($ingredientTypeName)) {
+    } else if ($this->ingredientTypeModel->insertIngredientTypes($ingredientTypeName)) {
       echo "<p>Added ingredient Type: $ingredientTypeName</p>";
     } else {
       echo "<p>Could not add ingredient type</p>";
@@ -146,7 +148,80 @@ public function showIngredientType()
     }
   }
 
-// end of the controller ingredient type
+//   end of the type
+
+  public function showIngredient()
+  {
+    $ingredients = $this->ingredientModel->selectIngredients();
+    include 'view/ingredient.php';
+  }
+
+
+  //function of showing the form of adding the ingredients
+  public function showFormIngredient()
+  {
+    $suppliers = $this->ingredientModel->selectSupplier();
+    $ingredientTypes = $this->ingredientModel->selectIngredientType();
+
+    include 'view/IngredientForm.php';
+  }
+
+  public function addIngredient()
+  {
+    $ingredientName = $_POST['ingredientName'];
+    $ingredientTypeID = $_POST['ingredientTypeID'];
+    $ingredientPrice = $_POST['ingredientPrice'];
+    $supplierID = $_POST['SupplierID'];
+
+    if ($this->ingredientModel->insertIngredient($ingredientName, $ingredientTypeID, $ingredientPrice, $supplierID)) {
+      echo "<p>Successfully added: $ingredientName, $ingredientTypeID, $ingredientPrice, $supplierID!</p>";
+    } else {
+      echo "<p>Failed to add!</p>";
+    }
+  }
+
+  public function deleteIngredient()
+  {
+    if (isset($_POST['deleteIngredient'])) {
+      $ingredientID = $_POST['ingredientID'];
+      if ($this->ingredientModel->deleteIngredient($ingredientID)) {
+        echo "<p style='color:white; font-size:14px; width: 80%; margin: 0 auto;'>Successfully deleted ingredient ID: $ingredientID</p>";
+      } else {
+        echo "<p style='color:white; font-size:14px; width: 80%; margin: 0 auto;'>Failed to delete ingredient ID: $ingredientID</p>";
+      }
+    }
+
+  }
+
+  public function updateIngredient()
+  {
+    if (isset($_POST['updateIngredient'])) {
+      $ingredientID = $_POST['ingredientID'];
+      $ingredientName = $_POST['ingredientName'];
+      $ingredientTypeID = $_POST['ingredientTypeID'];
+      $ingredientPrice = $_POST['ingredientPrice'];
+      $supplierID = $_POST['SupplierID'];
+    
+
+      if ($this->ingredientModel->updateIngredient($ingredientID, $ingredientName, $ingredientTypeID, $ingredientPrice, $supplierID)) {
+        echo "<p>Successfully updated ingredient with ID: $ingredientID</p>";
+      } else {
+        echo "<p>Failed to update ingredient with ID: $ingredientID</p>";
+      }
+    }
+  }
+
+  public function updateingredientForm()
+  {
+    $ingredientID = $_POST['ingredientID'];
+    $ingredient = $this->ingredientModel->getIngredientById($ingredientID); // Add a method to fetch a ingredient by ID
+    $suppliers = $this->ingredientModel->selectSupplier(); //fetch suppliers fpr the dropdown in the edit form
+    $ingredientTypes = $this->ingredientModel->selectIngredientType(); //fetch types for the dropdown in the edit form
+    include 'view/ingredientEdit.php';
+  }
+
+
+// end of the controller ingredient
 
   public function showMenu()
   {
@@ -158,11 +233,6 @@ public function showIngredientType()
 include_once 'control/connection.php';
 $connection = new connectionObject($host, $username, $password, $database);
 $controller = new Controller($connection);
-// if (isset($_POST['submit'])) {
-//   $controller->add();
-// } else {
-//   $controller->showForm();
-// }
 $controller->showMenu();
 
 if (isset($_POST['submitSupplier'])) {
@@ -181,6 +251,16 @@ if (isset($_POST['submitSupplier'])) {
                 $controller->deleteIngredientType();}
                 elseif (isset($_POST['updateIngredientType'])) {
                     $controller->updateIngredientType();}
+                    elseif (isset($_POST['submitIngredient'])) {
+                        $controller->addIngredient();}
+                    elseif (isset($_POST['editIngredient'])) {
+                        $controller->updateIngredientForm();
+                      } elseif (isset($_POST['deleteIngredient'])) {
+                        $controller->deleteIngredient();}
+                        elseif (isset($_POST['updateIngredient'])) {
+                            $controller->updateIngredient();}
+                            
+        
 
 
             
@@ -195,23 +275,21 @@ if (isset($_POST['submitSupplier'])) {
         } elseif ($_GET['page'] == 'addIngredientType') {
           $controller->showIngredientTypeForm();
         }
-      }
-    // } elseif ($_GET['page'] == 'addingredient') {
-    //   $controller->showFormIngredient();
-    // } elseif ($_GET['page'] == 'ingredients') {
-    //   $controller->showIngredient();
-    // } 
+    elseif ($_GET['page'] == 'addingredient') {
+      $controller->showFormIngredient();
+    } elseif ($_GET['page'] == 'ingredients') {
+      $controller->showIngredient();
+    } }
 
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'showSuppliers') {
       $controller->showSuppliers();
-//     } elseif ($_GET['action'] == 'showIngredients') {
-//       $controller->showIngredient();
+    } elseif ($_GET['action'] == 'showIngredients') {
+      $controller->showIngredient();
     } elseif ($_GET['action'] == 'showIngredientType') {
       $controller->showIngredientType();
     }
-//   }
     }
 
 

@@ -11,7 +11,7 @@
               <div class='card text-dark bg-light mb-3  h-100'>
  
    <div class='card-body text-dark'>
-   <h3 class='card-title'>" . $ingredientType['ingredientTypeID'] . ' ' . $ingredientType['ingredientTyperName'] . "</h3>
+   <h3 class='card-title'>" . $ingredientType['ingredientTypeID'] . ' ' . $ingredientType['ingredientTypeName'] . "</h3>
  </div>
   <div class='card-header'><form method='POST'>
                                 <input type='hidden' name='ingredientTypeID' value='" . $ingredientType['ingredientTypeID'] . "'>

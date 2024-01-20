@@ -26,8 +26,8 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">Ingredients</h5>
-            <p class="card-text">Here is the block for adding and displaying all the ingredients for preparing the
-              dishes</p>
+            <p class="card-text">Managing the data of ingredients
+              </p>
             <div class="d-flex justify-content-between">
               <a href="?page=ingredients" class="btn btn-warning">Check</a>
               <a href="?page=addingredient" class="btn btn-danger">Add</a>

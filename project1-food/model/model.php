@@ -336,40 +336,8 @@ class ingredientModel
     }
   }
 
-//   public function updateIngredient($ingredientID, $ingredientName, $ingredientPrice, $supplierID, $ingredientTypeID)
-//   {
-//     $mysqli = $this->connect();
-//     if ($mysqli) {
-//       // Use a prepared statement
-//       $stmt = $mysqli->prepare("UPDATE ingredient 
-//                                   SET ingredientName = ?, ingredientPrice = ?, supplierID = ?, ingredientTypeID = ?
-//                                   WHERE ingredientID = ?");
-
-//       // Bind parameters
-//       $stmt->bind_param("ssiii", $ingredientName, $ingredientPrice, $supplierID, $ingredientTypeID, $ingredientID);
-
-//       // Execute the statement
-//       if ($stmt->execute()) {
-//         // Update successful
-//         $stmt->close();
-//         $mysqli->close();
-//         return true;
-//       } else {
-//         // Update failed
-//         echo "Error: " . $stmt->error;
-//         $stmt->close();
-//         $mysqli->close();
-//         return false;
-//       }
-//     } else {
-//       return false;
-//     }
-//   }
-
 
 }
 
-//class for the supplier 
 
 ?>
-
