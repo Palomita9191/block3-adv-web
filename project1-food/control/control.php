@@ -6,10 +6,10 @@ include_once 'model/model.php';
 
 class Controller
 {
-  private $dish;
-  private $ingredientModel;
+
+  private $ingredientTypeModel;
   private $supplierModel;
-  private $dishIngredientModel;
+//   private $dishIngredientModel;
 
   public function __construct($connection)
   {
@@ -24,12 +24,12 @@ class Controller
 public function showSuppliers()
   {
     $suppliers = $this->supplierModel->selectSuppliers();
-    include 'views/supplier.php';
+    include 'view/supplier.php';
   }
 
   public function showSupplierForm()
   {
-    include 'views/supplierform.php';
+    include 'view/supplierform.php';
   }
 
   public function addSuppliers()
@@ -62,9 +62,9 @@ public function showSuppliers()
   }
   public function updateSupplierForm()
   {
-    $supplierID = $_POST['supplierID'];
+    $supplierID = $_POST['SupplierID'];
     $supplier = $this->supplierModel->getSupplierById($supplierID); 
-    include 'views/editSupplier.php';
+    include 'view/supplierEdit.php';
   }
 
   public function updateSupplier()
@@ -81,16 +81,77 @@ public function showSuppliers()
     }
   }
 
+//   end of supplier
+
+
+//static table: ingredientType
+
+public function showIngredientType()
+  {
+    $IngredientType = $this->ingredientTypeModel->selectIngredientType();
+    include 'view/ingredientType.php';
+  }
+
+  public function showIngredientTypeForm()
+  {
+    include 'view/ingredientTypeForm.php';
+  }
+
+  public function addIngredientType()
+  {
+    $ingredientTypeName = $_POST['ingredientTypeName'];
+
+    if (!$ingredientTypeName) {
+      echo "<p>Missing information</p>";
+      $this->showIngredientTypeForm();
+      return;
+    } else if ($this->ingredientTypeModel->insertIngredientType($ingredientTypeName)) {
+      echo "<p>Added ingredient Type: $ingredientTypeName</p>";
+    } else {
+      echo "<p>Could not add ingredient type</p>";
+    }
+
+  }
+
+  public function deleteIngredientType()
+  {
+    if (isset($_POST['deleteIngredientType'])) {
+      $ingredientTypeID = $_POST['ingredientTypeID'];
+      if ($this->ingredientTypeModel->deleteIngredientType($ingredientTypeID)) {
+        echo "<p style='color:white; font-size:14px; width: 80%; margin: 0 auto;'>Successfully deleted ingredient Type ID: $ingredientTypeID</p>";
+      } else {
+        echo "<p style='color:white; font-size:14px; width: 80%; margin: 0 auto;'>Failed to delete ingredient Type ID: $ingredientTypeID</p>";
+      }
+    }
+
+  }
+  public function updateIngredientTypeForm()
+  {
+    $ingredientTypeID = $_POST['ingredientType'];
+    $ingredientType = $this->ingredientTypeModel->getIngredientTypeById($ingredientTypeID); 
+    include 'view/ingredientTypeEdit.php';
+  }
+
+  public function updateIngredientType()
+  {
+    if (isset($_POST['updateingredientType'])) {
+      $ingredientTypeID = $_POST['ingredientTypeID'];
+      $ingredientTypeName = $_POST['ingredientTypeName'];
+ 
+      if ($this->ingredientTypeModel->updateingredientType($ingredientTypeID, $ingredientTypeName)) {
+        echo "<p>Successfully updated ingredient type with ID: $ingredientTypeID</p>";
+      } else {
+        echo "<p>Failed to update ingredient type with ID: $ingredientTypeID</p>";
+      }
+    }
+  }
+
+// end of the controller ingredient type
 
   public function showMenu()
   {
     include 'view/menu.php';
   }
-
-
-
-
-
 
 }
 
@@ -103,6 +164,56 @@ $controller = new Controller($connection);
 //   $controller->showForm();
 // }
 $controller->showMenu();
+
+if (isset($_POST['submitSupplier'])) {
+    $controller->addSuppliers();}
+    elseif (isset($_POST['editSupplier'])) {
+        $controller->updateSupplierForm();
+      } elseif (isset($_POST['deleteSupplier'])) {
+        $controller->deleteSupplier();}
+        elseif (isset($_POST['updateSupplier'])) {
+            $controller->updateSupplier();}
+            elseif (isset($_POST['submitIngredientType'])) {
+                $controller->updateIngredientTypeForm();}
+            elseif (isset($_POST['editIngredientType'])) {
+                $controller->updateIngredientTypeForm();
+              } elseif (isset($_POST['deleteIngredientType'])) {
+                $controller->deleteIngredientType();}
+                elseif (isset($_POST['updateIngredientType'])) {
+                    $controller->updateIngredientType();}
+
+
+            
+
+  if (isset($_GET['page'])) {
+    if ($_GET['page'] == 'suppliers') {
+      $controller->showSuppliers();
+    } elseif ($_GET['page'] == 'addsupplier') {
+      $controller->showSupplierForm();}
+      elseif ($_GET['page'] == 'ingredientTypes') {
+          $controller->showIngredientType();
+        } elseif ($_GET['page'] == 'addIngredientType') {
+          $controller->showIngredientTypeForm();
+        }
+      }
+    // } elseif ($_GET['page'] == 'addingredient') {
+    //   $controller->showFormIngredient();
+    // } elseif ($_GET['page'] == 'ingredients') {
+    //   $controller->showIngredient();
+    // } 
+
+
+if (isset($_GET['action'])) {
+    if ($_GET['action'] == 'showSuppliers') {
+      $controller->showSuppliers();
+//     } elseif ($_GET['action'] == 'showIngredients') {
+//       $controller->showIngredient();
+    } elseif ($_GET['action'] == 'showIngredientType') {
+      $controller->showIngredientType();
+    }
+//   }
+    }
+
 
 
   ?>
