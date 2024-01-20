@@ -50,7 +50,7 @@
 
     <div class="mb-3">
 
-      <input class="form-control btn btn-success" type="submit" name="submitIngredient" value="Submit">
+      <input class="form-control btn btn-info" type="submit" name="submitIngredient" value="Submit">
     </div>
 
   </form>

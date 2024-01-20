@@ -21,7 +21,7 @@
   <div class='card-header'> <form method='POST'>
                                 <input type='hidden' name='ingredientID' value='" . $ingredient['ingredientID'] . "'>
                                
-                                    <input type='submit' name='editIngredient' value='Edit' class='btn btn-info'>
+                                    <input type='submit' name='editIngredient' value='Edit' class='btn btn-warning'>
                                     <input type='submit' name='deleteIngredient' value='Delete'  class='btn btn-danger'>
                          
                             </form></div>

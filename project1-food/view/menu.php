@@ -2,20 +2,20 @@
   <div class="container">
     <div class="d-flex justify-content-between" style="margin: 20px 0">
       <h1>MVC project</h1>
-      <a href="?" class="btn btn-primary">Home</a>
+      <a href="?" class="">Home</a>
     </div>
 
 
     <div class="row mb-5">
       <div class="col-md-4 col-sm-12 mb-3 mb-sm-0">
         <div class="card h-100">
-          <div class="card-body">
+          <div class="card-body bg-text-white-50">
             <h5 class="card-title">Ingredient Types</h5>
             <p class="card-text">Managing the Types of ingredient</p>
 
             <div class="d-flex justify-content-between">
-              <a href="?page=ingredientTypes" class="btn btn-warning">Check</a>
-              <a href="?page=addIngredientType" class="btn btn-danger">Add</a>
+              <a href="?page=ingredientTypes" class="btn btn-primary">Check</a>
+              <a href="?page=addIngredientType" class="btn btn-success">Add</a>
             </div>
 
           </div>
@@ -29,8 +29,8 @@
             <p class="card-text">Managing the data of ingredients
               </p>
             <div class="d-flex justify-content-between">
-              <a href="?page=ingredients" class="btn btn-warning">Check</a>
-              <a href="?page=addingredient" class="btn btn-danger">Add</a>
+              <a href="?page=ingredients" class="btn btn-primary">Check</a>
+              <a href="?page=addingredient" class="btn btn-success">Add</a>
             </div>
           </div>
         </div>
@@ -40,10 +40,10 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">Suppliers</h5>
-            <p class="card-text">For manage the data of suppliers</p>
+            <p class="card-text">Managing the data of suppliers</p>
             <div class="d-flex justify-content-between">
-              <a href="?page=suppliers" class="btn btn-warning">Check</a>
-              <a href="?page=addsupplier" class="btn btn-danger">Add</a>
+              <a href="?page=suppliers" class="btn btn-primary">Check</a>
+              <a href="?page=addsupplier" class="btn btn-success">Add</a>
             </div>
           </div>
         </div>

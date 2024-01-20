@@ -13,7 +13,7 @@
     </div>
 
     <div class="mb-3">
-      <input class="form-control btn btn-success" type="submit" name="submitSupplier" value="Add">
+      <input class="form-control btn btn-info" type="submit" name="submitSupplier" value="Submit">
     </div>
   </form>
 </div>

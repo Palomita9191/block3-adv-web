@@ -31,7 +31,7 @@ public function showSuppliers()
 
   public function showSupplierForm()
   {
-    include 'view/supplierform.php';
+    include 'view/supplierForm.php';
   }
 
   public function addSuppliers()
@@ -163,7 +163,7 @@ public function showIngredientType()
     $suppliers = $this->ingredientModel->selectSupplier();
     $ingredientTypes = $this->ingredientModel->selectIngredientType();
 
-    include 'view/IngredientForm.php';
+    include 'view/ingredientForm.php';
   }
 
   public function addIngredient()

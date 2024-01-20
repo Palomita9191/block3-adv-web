@@ -8,7 +8,7 @@
     </div>
 
     <div class="mb-3">
-      <input class="form-control btn btn-success" type="submit" name="submitIngredientType" value="Add">
+      <input class="form-control btn btn-info" type="submit" name="submitIngredientType" value="Submit">
     </div>
   </form>
 </div>
