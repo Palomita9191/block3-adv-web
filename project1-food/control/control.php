@@ -88,7 +88,7 @@ public function showSuppliers()
 
 public function showIngredientType()
   {
-    $IngredientType = $this->ingredientTypeModel->selectIngredientType();
+    $ingredientTypes = $this->ingredientTypeModel->selectIngredientType();
     include 'view/ingredientType.php';
   }
 
@@ -174,7 +174,7 @@ if (isset($_POST['submitSupplier'])) {
         elseif (isset($_POST['updateSupplier'])) {
             $controller->updateSupplier();}
             elseif (isset($_POST['submitIngredientType'])) {
-                $controller->updateIngredientTypeForm();}
+                $controller->addIngredientType();}
             elseif (isset($_POST['editIngredientType'])) {
                 $controller->updateIngredientTypeForm();
               } elseif (isset($_POST['deleteIngredientType'])) {

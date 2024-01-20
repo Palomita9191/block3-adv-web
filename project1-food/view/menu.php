@@ -14,8 +14,8 @@
             <p class="card-text">Managing the Types of ingredient</p>
 
             <div class="d-flex justify-content-between">
-              <a href="?page=ingredientType" class="btn btn-warning">Check</a>
-              <a href="?page=addingredientType" class="btn btn-danger">Add</a>
+              <a href="?page=ingredientTypes" class="btn btn-warning">Check</a>
+              <a href="?page=addIngredientType" class="btn btn-danger">Add</a>
             </div>
 
           </div>
