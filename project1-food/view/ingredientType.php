@@ -16,8 +16,8 @@
   <div class='card-header'><form method='POST'>
                                 <input type='hidden' name='ingredientTypeID' value='" . $ingredientType['ingredientTypeID'] . "'>
                                 <div class='button-container'>
-                                    <input type='submit' name='editingredientType' value='Edit' class='btn btn-info'>
-                                    <input type='submit' name='deleteingredientType' value='Delete' class='btn btn-danger'>
+                                    <input type='submit' name='editIngredientType' value='Edit' class='btn btn-info'>
+                                    <input type='submit' name='deleteIngredientType' value='Delete' class='btn btn-danger'>
                                 </div>
                             </form></div>
  </div>

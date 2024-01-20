@@ -129,14 +129,14 @@ public function showIngredientType()
   }
   public function updateIngredientTypeForm()
   {
-    $ingredientTypeID = $_POST['ingredientType'];
+    $ingredientTypeID = $_POST['ingredientTypeID'];
     $ingredientType = $this->ingredientTypeModel->getIngredientTypeById($ingredientTypeID); 
     include 'view/ingredientTypeEdit.php';
   }
 
   public function updateIngredientType()
   {
-    if (isset($_POST['updateingredientType'])) {
+    if (isset($_POST['updateIngredientType'])) {
       $ingredientTypeID = $_POST['ingredientTypeID'];
       $ingredientTypeName = $_POST['ingredientTypeName'];
  

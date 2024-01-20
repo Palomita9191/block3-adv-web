@@ -285,7 +285,7 @@ class ingredientModel
   {
     $mysqli = $this->connect();
     if ($mysqli) {
-      $mysqli->query("INSERT INTO ingredient (ingredientName, ingredientTypeID, ingredientPrice, SupplierID, ) VALUES ('$ingredientName', '$ingredientTypeID', '$ingredientPrice', '$supplierID')");
+      $mysqli->query("INSERT INTO ingredient (ingredientName, ingredientTypeID, ingredientPrice, SupplierID) VALUES ('$ingredientName', '$ingredientTypeID', '$ingredientPrice', '$supplierID')");
       $mysqli->close();
       return true;
     } else {
@@ -326,7 +326,7 @@ class ingredientModel
     $mysqli = $this->connect();
     if ($mysqli) {
       $mysqli->query("UPDATE ingredient 
-                      SET ingredientName = '$ingredientName', ingredientTypeID = '$ingredientTypeID', ingredientPrice = '$ingredientPrice', SupplierID = '$supplierID', 
+                      SET ingredientName = '$ingredientName', ingredientTypeID = '$ingredientTypeID', ingredientPrice = '$ingredientPrice', SupplierID = '$supplierID'
                         
                         WHERE ingredientID = '$ingredientID'");
       $mysqli->close();
